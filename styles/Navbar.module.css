@@ -38,6 +38,7 @@
 .cart{
     padding: 9px 25px;
     position: relative;
+    cursor: pointer;
    
 }
 

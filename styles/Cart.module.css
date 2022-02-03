@@ -2,6 +2,7 @@
     height: 100vh;
   padding: 50px;
   display: flex;
+  overflow:scroll;
 }
 
 .left {
@@ -10,6 +11,7 @@
 
 .right {
   flex: 1;
+  
 }
 
 .imgContainer {
@@ -40,6 +42,7 @@
   background-color: #333;
   padding: 50px;
   padding-top: 10px;
+   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,6 +51,10 @@
 
 .totalTextTitle {
   margin-right: 10px;
+  
+}
+.totalText{
+  margin: 5px;
 }
 
 .button {
@@ -55,61 +62,21 @@
   color: #d1411e;
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
+  width: 100%;
   margin-top: 20px;
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 480px) {
-  .container {
-    flex-direction: column;
-    padding: 20px;
-  }
 
-  .table {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .trTitle{
-    display: none;
-  }
-
-  .tr{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .imgContainer{
-    width: 35vw;
-    height: 35vw;
-  }
-
-  .name,.total{
-    font-size: 24px;
-  }
-
-  .extras,.price,.quantity{
-    font-size: 22px;
-  }
-
-  .price::before{
-    content: "Price: ";
-    font-weight: 500;
-  }
-  .quantity::before{
-    content: "Quantity: ";
-    font-weight: 500;
-  }
-  .total::before{
-    content: "Total: ";
-    font-weight: 500;
-  }
-
-  .wrapper{
-    width: 100%;
-  }
+.payButton {
+   height: 30px;
+  color: teal;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
 }
+
