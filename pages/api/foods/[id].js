@@ -29,9 +29,9 @@ export default async function handler(req, res) {
       break;
     case "DELETE":
       try {
-        const food = await Food.create(req.body);
+        await Food.findByIdAndDelete(id);
 
-        res.status(201).json(food);
+        res.status(201).json("food has been removed");
       } catch (err) {
         console.log(err);
         res.status(500).json(err);

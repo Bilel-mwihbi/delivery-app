@@ -7,11 +7,14 @@ const NavBar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
     return (
     <div className={styles.container}>
+        <Link href="/">
         <h1>DELIVERY</h1>
+        </Link>
+        
         <nav>
           <ul className={styles.nav_links}>
             <li>
-              <a href="">Homepage</a>
+              <Link href="/">Homepage</Link>
             </li>
             <li>
               <a href="">Products</a>

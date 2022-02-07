@@ -9,7 +9,7 @@ const ComponentsHandlePage = ({obj}) => {
     
     const [quantity, setQuantity] = useState(1);
     const [options,setOptions] =useState([]);
-    const [specifications,setSpec] =useState([]);
+    
     const [price,setPrice]=useState(obj.price[0]);
 
     const dispatch = useDispatch();

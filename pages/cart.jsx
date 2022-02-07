@@ -2,13 +2,31 @@ import Image from "next/image";
 import styles from "../styles/Cart.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import OrderDetail from "../components/OrderDetail";
+import { useRouter } from "next/router";
+import { reset } from "../redux/cart";
 
 const cart = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const selectedFood=[]
   const selectProducts=[];
   const cart = useSelector((state) => state.cart);
   const [payed,setPayed]=useState(false);
+  const [order,setOrder]=useState(false);
+  
+  const createOrder = async (data) => {
+    
+     fetch("http://localhost:3000/api/orders",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(data)
+          
+      }).then(response =>response.json())
+        .then(obj => router.push("/order/"+obj._id))
+        dispatch(reset());
+  }
+ 
   
   cart.products.map((product)=>{
     if((product.category =="pizza") || (product.category =="meal")){
@@ -142,7 +160,7 @@ const cart = () => {
                   </div>
                   {payed && 
                   <div className={styles.payement}>
-                      <button className={styles.payButton}>
+                      <button onClick={()=>setOrder(true)} className={styles.payButton}>
                         CASH ON DELIVERY
                       </button>
                   </div>
@@ -153,6 +171,9 @@ const cart = () => {
                   
                 </div>
               </div>
+              {order && (
+                <OrderDetail total={cart.total} createOrder={createOrder} />
+              )}
          </div> 
     );
 }

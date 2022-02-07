@@ -17,6 +17,7 @@ export default async function handler(req, res) {
       break;
     case "POST":
       try {
+        
         const food = await Food.create(req.body);
 
         res.status(201).json(food);
