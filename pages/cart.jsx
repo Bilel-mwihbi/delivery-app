@@ -153,7 +153,7 @@ const cart = () => {
                     <b className={styles.totalTextTitle}>Subtotal:</b>{cart.total}
                   </div>
                   <div className={styles.totalText}>
-                    <b className={styles.totalTextTitle}>Discount:</b>$0.00
+                    <b className={styles.totalTextTitle}>Discount:</b>TND0.00
                   </div>
                   <div className={styles.totalText}>
                     <b className={styles.totalTextTitle}>Total:</b>{cart.total}

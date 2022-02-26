@@ -44,8 +44,8 @@ const ComponentsHandlePage = ({obj}) => {
                 <div className={styles.right}>
                         <h1 className={styles.title}>{obj.title}</h1>
                         
-                        <span className={styles.price}>{price}</span>
-                        <p className={styles.desc}>{obj.desc}</p>
+                        <span className={styles.price}>{price}TND</span>
+                        <p className={styles.desc}>{obj.description}</p>
                         <h3 className={styles.choose}>Choose the size</h3>
                         <div className={styles.sizes}>
                             <div className={styles.size} onClick={() => setPrice(obj.price[0])}>
@@ -92,8 +92,8 @@ const ComponentsHandlePage = ({obj}) => {
                 </div>
                 <div className={styles.right}>
                     <h1 className={styles.title}>{obj.title}</h1>
-                        <span className={styles.price}>{price}</span>
-                        <p className={styles.desc}>{obj.desc}</p>
+                        <span className={styles.price}>{price}TND</span>
+                        <p className={styles.desc}>{obj.description}</p>
                     
                 <h3 className={styles.choose}>Choose additional ingredients</h3>
                         <div className={styles.ingredients}>

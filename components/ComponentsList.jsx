@@ -6,9 +6,7 @@ const ComponentsList = ({foodList,productList}) => {
     <div className={styles.container}>
       <h1 className={styles.title}>Order food , meals and products to your door</h1>
       <p className={styles.desc}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit arcu
-        in pretium molestie. Interdum et malesuada fames acme. Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit.
+        This platform provides the users to order any kind of products or maybe food in one click !! you can also track your order online no need to call any delivery services .
       </p>
       <h2>Eat what makes you happy</h2>
       <div className={styles.wrapper}>

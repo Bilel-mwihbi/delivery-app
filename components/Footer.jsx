@@ -3,8 +3,8 @@ const Footer = () => {
     return ( 
     <footer className={styles.footer}>
         <div className={styles.footer_content}>
-            <h3>code opacity</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo iste corrupti doloribus odio sed!</p>
+            <h3>Delivery</h3>
+            <p>A professional who doesn't deliver as committed is not just lazy, he is a liar</p>
             <ul className={styles.socials}>
                 
                

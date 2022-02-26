@@ -8,10 +8,7 @@ const FoodCard = ({food}) => {
       <Image src={food.img} alt="" width="500" height="500" />
       </Link>
       <h1 className={styles.title}>{food.title}</h1>
-      <span className={styles.price}>${food.price[0]}</span>
-      <p className={styles.desc}>
-        {food.description}
-      </p>
+      <span className={styles.price}>{food.price[0]}TND</span>
     </div>
     );
 }

@@ -1,8 +1,7 @@
 import cookie from "cookie";
 
 export default async function handler(req, res) {
-
-      try {
+   
           if (req.method === "POST") {
             const { username, password } = req.body;
 
@@ -18,15 +17,9 @@ export default async function handler(req, res) {
                 })
               );
               res.status(200).json("Succesfull");
+            } else {
+              res.status(400).json("Wrong Credentials!");
             }
           }
-      }catch(err){
-        console.log(err)
-        res.status(400).json(err);
-        
-      }
-
-    
-  
-
-}
+      
+};

@@ -7,22 +7,27 @@ const login = () => {
   const [password, setPassword] = useState(null);
   const [error, setError] = useState(false);
   const router = useRouter();
-    const data ={username,password}
+    
+    
   const handleLogin = async () => {
     try {
+      const data ={username,password}
+      
       await fetch("http://localhost:3000/api/login",{
           method:"POST",
            headers: {'Content-Type': 'application/json'},
            body: JSON.stringify(data),
       })
-      .then(response => response.json())
-      .then(data => console.log('Success:', data));
-      router.push("/admin")
       
-    
+      .then(response => 
+        { if (response.status === 200) {
+           router.push("/admin")
+        } else {
+                setError(true);
+        }})
     } catch (err) {
         console.log(err)
-      setError(true);
+      
     }
   };
     return ( 

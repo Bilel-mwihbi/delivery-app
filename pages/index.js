@@ -25,7 +25,8 @@ export default function Home({ foodList, productList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Slider />
-      <ComponentsList foodList={foodList} productList={productList} />
+      {foodList   && <ComponentsList foodList={foodList} productList={productList} />}
+      
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import styles from "../../styles/Admin.module.css";
 import Image from "next/image";
 import { useState} from "react";
+import AddNewFood from "../../components/AddNewFood";
 
 const index = ({foodList,productList,orderList}) => {
+  const [close,setClose]=useState(false)
   const status = ["preparing", "on the way", "delivered","aaaa", "bbbb" ,"cccc"];
   //food_list hook
   const [fdList,setFdlist]  =useState(foodList);
@@ -46,6 +48,8 @@ const index = ({foodList,productList,orderList}) => {
         <div className={styles.items}>
           <div className={styles.item}>
           <h1 className={styles.title}>Foods</h1>
+          <button onClick={()=>setClose(true)}>add new food</button>
+
           <table className={styles.table}>
             <tbody>
               <tr className={styles.trTitle}>
@@ -56,7 +60,7 @@ const index = ({foodList,productList,orderList}) => {
                 <th>Action</th>
               </tr>
             </tbody>
-            {fdList.map((food)=>(
+            {fdList && fdList.map((food)=>(
               <tbody key={food._id}>
                 <tr>
                  <td>
@@ -164,10 +168,23 @@ const index = ({foodList,productList,orderList}) => {
           ))}
         </table>
       </div>
+      {close && <AddNewFood setClose={setClose}/>}
     </div> );
 }
  
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (ctx) => {
+
+    const myCookie = ctx.req?.cookies || "";
+
+  if (myCookie.token !== process.env.TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin/login",
+        permanent: false,
+      },
+    };
+  }
+
   const resFood = await fetch(`http://localhost:3000/api/foods`);
   const resProduct = await fetch(`http://localhost:3000/api/products`);
   const resOrder = await fetch(`http://localhost:3000/api/orders`);
@@ -185,13 +202,3 @@ export const getServerSideProps = async () => {
 }; 
 
 export default index;
-/*  {
-        "_id": "61fe52d8efed32e003dba20e",
-        "customer": "bilel",
-        "address": "auyaguayguya",
-        "total": 77.5,
-        "phoneNumber": 20548774,
-        "status": 4,
-        "creationDate": "2022-02-05T10:35:04.295Z",
-        "__v": 0
-    } */
